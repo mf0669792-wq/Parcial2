@@ -1,0 +1,141 @@
+### resource.http
+
+@baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMjMwNzU0LCJleHAiOjE3NjAyMzEzNTR9.qdGzduLMcwKWABGi0GzoLSLrxt74Ua_xO5wjAIvmJOM
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+## Obtener todos los recursos (SIN token)
+GET {{baseUrl}}/api/resources/public
+
+### Obtener recurso por ID (SIN token)
+GET {{baseUrl}}/api/resources/public/5
+
+### Eliminar un recurso físicamente (SIN token)
+DELETE {{baseUrl}}/api/resources/public/1
+
+### Eliminar un recurso lógicamente (SIN token)
+DELETE {{baseUrl}}/api/resources/public/2/logic
+### ================== DOG ==================
+
+### Mostrar dogs
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/dog/public",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar dog por ID
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/dog/public/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo dog
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/dog/public",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un dog
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/dog/public/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un dog físicamente
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/dog/public/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un dog lógicamente
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/dog/public/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### ================== ADOPTION ==================
+
+### Mostrar adoptions
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/adoption/public",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Mostrar adoption por ID
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/adoption/public/:id",
+  "method": "GET",
+  "is_active": "ACTIVE"
+}
+
+### Crear un nuevo adoption
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/adoption/public",
+  "method": "POST",
+  "is_active": "ACTIVE"
+}
+
+### Actualizar un adoption
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/adoption/public/:id",
+  "method": "PATCH",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un adoption físicamente
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/adoption/public/:id",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}
+
+### Eliminar un adoption lógicamente
+POST {{baseUrl}}/api/resources/public
+Content-Type: application/json
+
+{
+  "path": "/api/adoption/public/:id/logic",
+  "method": "DELETE",
+  "is_active": "ACTIVE"
+}

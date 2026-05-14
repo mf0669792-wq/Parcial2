@@ -1,0 +1,42 @@
+// dog.http
+
+@token = your_token_here
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List dogs (PUBLIC)
+GET {{baseUrl}}/api/dog/public
+
+### Get dog by ID (PUBLIC)
+GET {{baseUrl}}/api/dog/public/1
+
+### Create dog (PUBLIC)
+POST {{baseUrl}}/api/dog/public
+Content-Type: application/json
+
+{
+  "breed": "Labrador",
+  "birth_date": "2022-05-10",
+  "color": "Black",
+  "vaccinated": true,
+  "status": "ACTIVE"
+}
+
+### Update dog (PUBLIC)
+PATCH {{baseUrl}}/api/dog/public/1
+Content-Type: application/json
+
+{
+  "breed": "Golden Retriever",
+  "birth_date": "2021-08-15",
+  "color": "Golden",
+  "vaccinated": true,
+  "status": "ACTIVE"
+}
+
+### Hard delete dog (PUBLIC)
+DELETE {{baseUrl}}/api/dog/public/1
+
+### Soft delete dog (PUBLIC)
+DELETE {{baseUrl}}/api/dog/public/1/logic
