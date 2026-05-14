@@ -1,71 +1,116 @@
 # Parcial 2
 
-## 1. Configuración inicial del proyecto
+Este fue el paso a paso que seguí para construir y probar el proyecto. La idea fue dejar una API en TypeScript conectada a MySQL, con modelos, rutas, archivos de prueba y datos falsos para verificar que todo funcionara correctamente.
 
-Primero se configuró TypeScript con `tsconfig.json`, dejando el código fuente dentro de `src` y la salida compilada en `dist`. También se preparó el archivo `.env` para manejar las variables de conexión a la base de datos sin escribir esos datos directamente en el código.
+## 1. Configuración inicial
 
-![Configuración de TypeScript](src/imagenes/capturas/tsconfig.json.png)
+Primero configuré TypeScript con el archivo `tsconfig.json`. Allí quedó definido que el código fuente está en `src` y que la compilación sale hacia `dist`.
 
-![Archivo env](src/imagenes/capturas/archivo.env.png)
+<p>
+  <img src="src/imagenes/capturas/tsconfig.json.png" alt="Configuración de TypeScript" width="700">
+</p>
 
-## 2. Conexión a la base de datos
+También preparé el archivo `.env`, donde dejé las variables de conexión para no escribir directamente los datos de la base de datos dentro del código.
 
-Después se creó la conexión con Sequelize en `src/database/db.ts`. Allí se definió el motor de base de datos, en este caso MySQL, y se dejó lista la función para probar la conexión antes de levantar el servidor.
+<p>
+  <img src="src/imagenes/capturas/archivo.env.png" alt="Archivo env" width="700">
+</p>
 
-![Configuración de base de datos](src/imagenes/capturas/db.ts%20de%20database.png)
+## 2. Conexión con MySQL
 
-![Base de datos MySQL](src/imagenes/capturas/mysql.png)
+Después creé la configuración de la base de datos en `src/database/db.ts`. En este archivo se define el motor de base de datos, las credenciales que vienen desde `.env` y la conexión con Sequelize.
+
+<p>
+  <img src="src/imagenes/capturas/db.ts%20de%20database.png" alt="Archivo db.ts" width="700">
+</p>
+
+Luego verifiqué que la base de datos existiera en MySQL y que el proyecto pudiera conectarse correctamente.
+
+<p>
+  <img src="src/imagenes/capturas/mysql.png" alt="Base de datos MySQL" width="700">
+</p>
 
 ## 3. Configuración del servidor
 
-Luego se configuró Express desde `src/config/index.ts` y el archivo principal del servidor. Se agregaron middlewares como `morgan`, `cors`, `express.json()` y la sincronización con Sequelize para que las tablas se creen o se mantengan actualizadas.
+Luego organicé la configuración principal de Express. Se agregaron middlewares como `morgan`, `cors`, `express.json()` y la sincronización con Sequelize.
 
-![Config index](src/imagenes/capturas/index.ts%20de%20config.png)
+<p>
+  <img src="src/imagenes/capturas/index.ts%20de%20config.png" alt="Configuración principal" width="700">
+</p>
 
-![Server](src/imagenes/capturas/server.ts%20de%20src.png)
+También dejé listo el archivo del servidor para iniciar la aplicación y escuchar el puerto configurado.
 
-## 4. Creación de los modelos
+<p>
+  <img src="src/imagenes/capturas/server.ts%20de%20src.png" alt="Archivo server.ts" width="700">
+</p>
 
-Se crearon los modelos principales del proyecto: `Dog` y `Adoption`. El modelo de perros guarda datos como raza, fecha de nacimiento, color, vacunación y estado. El modelo de adopciones guarda la fecha, documento, nombre del adoptante, valor y el perro relacionado.
+## 4. Modelos principales
 
-`EN ESTE PASO SE LE PIDIO AYUDA A LA IA`
+Después creé los modelos `Dog` y `Adoption`. El modelo de perros guarda la raza, fecha de nacimiento, color, vacunación y estado. El modelo de adopciones guarda la fecha, documento, nombre del adoptante, valor y el perro asociado.
 
-![Modelo Dog](src/imagenes/capturas/modelo_dog.png)
+En este paso se pidió ayuda a la IA para organizar mejor la estructura de los modelos y corregir detalles de TypeScript.
 
-![Modelo Adoption](src/imagenes/capturas/modelo_adoption.png)
+<p>
+  <img src="src/imagenes/capturas/modelo_dog.png" alt="Modelo Dog" width="700">
+</p>
 
-## 5. Creación de rutas
+<p>
+  <img src="src/imagenes/capturas/modelo_adoption.png" alt="Modelo Adoption" width="700">
+</p>
 
-Con los modelos listos, se organizaron las rutas de perros y adopciones. También se creó el archivo `index.ts` dentro de `src/routes` para centralizar las rutas principales del proyecto.
+## 5. Rutas del proyecto
 
-`EN ESTE PASO SE LE PIDIO AYUDA A LA IA`
+Con los modelos listos, creé las rutas para perros y adopciones. Estas rutas permiten listar, consultar, crear, actualizar y eliminar registros.
 
-![Ruta Dog](src/imagenes/capturas/ruta_dog.png)
+En este paso también se pidió ayuda a la IA para corregir errores de importación y dejar las rutas funcionando.
 
-![Ruta Adoption](src/imagenes/capturas/ruta_adoption.png)
+<p>
+  <img src="src/imagenes/capturas/ruta_dog.png" alt="Ruta Dog" width="700">
+</p>
 
-![Index routes](src/imagenes/capturas/idex_routes.png)
+<p>
+  <img src="src/imagenes/capturas/ruta_adoption.png" alt="Ruta Adoption" width="700">
+</p>
 
-## 6. Pruebas con archivos HTTP
+También se creó el archivo `index.ts` de rutas para centralizar la organización del proyecto.
 
-Para probar la API se crearon archivos `.http`. Con ellos se pueden ejecutar peticiones para listar, crear, actualizar y eliminar perros o adopciones sin tener que escribir las solicitudes manualmente cada vez.
+<p>
+  <img src="src/imagenes/capturas/idex_routes.png" alt="Index de rutas" width="700">
+</p>
 
-![HTTP Dog](src/imagenes/capturas/http_dog.png)
+## 6. Pruebas HTTP
 
-![HTTP Adoption](src/imagenes/capturas/http_adoption.png)
+Para probar la API creé archivos `.http`. Con ellos pude ejecutar las peticiones directamente desde el editor y comprobar los endpoints de perros y adopciones.
+
+<p>
+  <img src="src/imagenes/capturas/http_dog.png" alt="Pruebas HTTP Dog" width="700">
+</p>
+
+<p>
+  <img src="src/imagenes/capturas/http_adoption.png" alt="Pruebas HTTP Adoption" width="700">
+</p>
 
 ## 7. Datos falsos con Faker
 
-Finalmente se creó `src/faker/populate_data.ts` para llenar la base de datos con información falsa. El script genera roles, recursos, usuarios, tokens, perros y adopciones. Para ejecutarlo se usa:
+Finalmente creé el archivo `src/faker/populate_data.ts` para insertar datos falsos en la base de datos. El script genera usuarios, roles, recursos, perros, adopciones y sus relaciones.
+
+El comando usado para ejecutarlo fue:
 
 ```bash
 npx ts-node src/faker/populate_data.ts
 ```
 
-También se corrigieron detalles de importación para que `ts-node` pudiera ejecutar el proyecto sin errores.
+<p>
+  <img src="src/imagenes/capturas/faker.png" alt="Archivo Faker" width="700">
+</p>
 
-![Faker](src/imagenes/capturas/faker.png)
+Al ejecutarlo, los datos quedaron registrados en MySQL y se pudo confirmar que la base de datos estaba recibiendo la información correctamente.
 
-![Datos falsos en MySQL](src/imagenes/capturas/datos_falsos_mysql.png)
+<p>
+  <img src="src/imagenes/capturas/datos_falsos_mysql.png" alt="Datos falsos en MySQL" width="700">
+</p>
 
+## Resultado final
+
+Al final quedó una API funcional, conectada a MySQL, con modelos relacionados, rutas organizadas, pruebas HTTP y un script para poblar la base de datos. Esto permitió probar el proyecto de forma más rápida y sin tener que insertar cada registro manualmente.
 
